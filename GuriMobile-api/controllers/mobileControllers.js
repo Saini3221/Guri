@@ -30,5 +30,11 @@ const createMobile = async (req, res) => {
     // let newdata =await Mobile.create(data)
 
 }
+const upDateMobile = async (req,res)=> {
+    let id = req.headers.id;
+    let data =req.body;
+    let mobileData = await Mobile.findByIdAndUpdate(id,data)
+    res.send(mobileData)
+}
 
-module.exports = { getAllMobile, createMobile, getSingleMobile }
+module.exports = { getAllMobile, createMobile, getSingleMobile, upDateMobile }

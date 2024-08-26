@@ -42,4 +42,4 @@ function GetAllUser() {
   )
 }
 
-export default GetAllUser
+export default GetAllUser  

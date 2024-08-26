@@ -17,7 +17,7 @@ function Home() {
       <Navbar1 />
       <Carousel slides={slides} />
       <div className="flex flex-col w-[100%]">
-        <Card img={pic} phoneName={"Iphone 15 pro"} price={"1,50,000"} brand={"iphone"}/>
+        {/* <Card img={pic} phoneName={"Iphone 15 pro"} price={"1,50,000"} brand={"iphone"}/> */}
  
         
       </div>

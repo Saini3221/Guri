@@ -1,89 +1,70 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
-import axios from "axios";
 import Footer from "../components/Footer";
-import { useNavigate } from "react-router-dom"; 
+import axios from "axios";
+import { Link } from "react-router-dom";
+import HashLoader from "react-spinners/HashLoader";
+import Card from "../components/Card";
 
-function AddPhone() {
-  const [phoneName, setPhoneName] = useState("");
-  const [price, setPrice] = useState("");
-  const [thumbnail, setThumbnail] = useState("");
-  const [brand, setBrand] = useState("");
-  const navigate = useNavigate();
+function UpdatePhone() {
+  const [mobileData, setMobileData] = useState([]);
+  const [loding, setLoading] = useState(true);
 
-  function submit(e) {
-    e.preventDefault();
+  useEffect(() => {
     axios
-      .post("http://localhost:8000/mobile/createMobile", {
-        phoneName,
-        price,
-        thumbnail,
-        brand
-      })
+      .get("http://localhost:8000/mobile/")
       .then((response) => {
-        navigate("/dashboard");
-        // console.log(response.data);
+        setLoading(false);
+        setMobileData(response.data);
+        // console.log(setMobileData)
       })
       .catch((e) => {
         console.log(e);
       });
-  }
+  }, []);
   return (
     <div className="h-screen flex flex-col justify-between">
-      <Navbar />
-      <form>
-        <div className="flex h-full flex-col justify-center items-center ">
-          <input
-            type="text"
-            value={phoneName}
-            className=" w-[30%] h-12 m-2"
-            placeholder="Name"
-            onChange={(e) => {
-              setPhoneName(e.target.value);
-            }}
-          />
-          <input
-            type="text"
-            placeholder="Price"
-            value={price}
-            className=" w-[30%] h-12 m-2"
-            onChange={(e) => {
-              setPrice(e.target.value);
-            }}
-          />
-          <input
-            type="text"
-            placeholder="Thumbnail"
-            value={thumbnail}
-            className=" w-[30%] h-12 m-2"
-            onChange={(e) => {
-              setThumbnail(e.target.value);
-            }}
-          />
-          <input
-            type="text"
-            placeholder="Brand"
-            value={brand}
-            className=" w-[30%] h-12 m-2"
-            onChange={(e) => {
-              setBrand(e.target.value);
-            }}
-          />
+      {loding ? (
+        <div className="flex items-center justify-center w-full h-full">
+          <HashLoader color="#36d7b7" />
         </div>
+      ) : (
+        <div className="h-screen flex flex-col justify-between">
+          <Navbar />
 
-        <div className="flex items-center justify-center">
-          <button
-            type="submit"
-            onClick={submit}
-            className="bg-black px-8 py-2 text-white flex justify-center items-center"
-          >
-            Update Phone
-          </button>
+          <div className="flex flex-col w-[99%] ">
+            {mobileData.map((mobile) => (
+              <Link to={"/mobile/" + mobile._id}
+              key={mobile._id}
+              >
+                <div>
+                  img={mobile.thumbnail}
+                  phoneName={mobile.phoneName}
+                  brand={mobile.brand}
+                  price={"₹" + mobile.price}
+                  </div>
+              </Link>
+            ))}
+          </div>
+
+          <Footer />
         </div>
-      </form>
-      <Footer />
+      )}
     </div>
   );
 }
 
-export default AddPhone;
+export default UpdatePhone;
+
+// {iphone.map((iphone, index) => (
+
+//   <Link to={'/mobile/'+iphone.id } key={iphone.id} className="flex justify-center m-5 shadow-xl">
+//     <div className="flex flex-col items-center justify-center ">
+//       <img src={iphone.img} alt="card image" className="w-72" />
+//       <p>{iphone.name}</p>
+//       <p>{iphone.price}</p>
+
+//     </div>
+//   </Link>
+
+// ))}
