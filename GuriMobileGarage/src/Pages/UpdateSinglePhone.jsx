@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 
 function UpdateSinglePhone() {
   let { id } = useParams();
@@ -8,7 +9,7 @@ function UpdateSinglePhone() {
   let headers = {
     id: id,
   };
-  return <div>UpdateSinglePhone</div>;
+  return <div>hello world</div>;
 }
 
 export default UpdateSinglePhone;

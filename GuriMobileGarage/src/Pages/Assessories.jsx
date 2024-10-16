@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+// import React, { useEffect, useState } from "react";
+// import axios from "axios";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-import Card from "../components/Card"
+// import Card from "../components/Card"
 function Assessories() {
   // useEffect(() => {
   //   axios

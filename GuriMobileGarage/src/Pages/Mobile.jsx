@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import axios from "axios";
@@ -32,19 +32,18 @@ function Mobile() {
         <div className="h-screen flex flex-col justify-between">
           <Navbar />
 
-          <div className="flex flex-col w-[99%] ">
-            {mobileData.map((mobile) => (
-              <Link to={"/mobile/" + mobile._id}
-              key={mobile._id}
-              >
-                <Card
-                  img={mobile.thumbnail}
-                  phoneName={mobile.phoneName}
-                  brand={mobile.brand}
-                  price={"₹" + mobile.price}
-                />
-              </Link>
-            ))}
+          <div className="my-5 w-full">
+            <div className="flex-row flex flex-wrap justify-evenly gap-4">
+              {mobileData.map((mobile) => (
+                <Link to={"/mobile/" + mobile._id} key={mobile._id}>
+                  <Card
+                    img={mobile.thumbnail}
+                    phoneName={mobile.phoneName}
+                    price={"₹" + mobile.price}
+                  />
+                </Link>
+              ))}
+            </div>
           </div>
 
           <Footer />

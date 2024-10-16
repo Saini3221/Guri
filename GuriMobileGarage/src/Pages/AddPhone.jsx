@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import Navbar from "../components/Navbar";
 import axios from "axios";
 import Footer from "../components/Footer";
@@ -20,18 +20,16 @@ function AddPhone() {
         thumbnail,
         brand
       })
-      .then((response) => {
-        navigate("/dashboard");
-        // console.log(response.data);
-      })
+      .then((response) => { navigate("/dashboard");})
       .catch((e) => {
         console.log(e);
       });
   }
+
   return (
     <div className="h-screen flex flex-col justify-between">
       <Navbar />
-      <form>
+      <form onSubmit={submit}>
         <div className="flex h-full flex-col justify-center items-center ">
           <input
             type="text"
@@ -74,7 +72,6 @@ function AddPhone() {
         <div className="flex items-center justify-center">
           <button
             type="submit"
-            onClick={submit}
             className="bg-black px-8 py-2 text-white flex justify-center items-center"
           >
             Add Phone

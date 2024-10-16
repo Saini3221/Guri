@@ -32,18 +32,31 @@ function UpdatePhone() {
         <div className="h-screen flex flex-col justify-between">
           <Navbar />
 
-          <div className="flex flex-col w-[99%] ">
+          <div className="flex flex-col w-[99%]  ">
             {mobileData.map((mobile) => (
-              <Link to={"/mobile/" + mobile._id}
-              key={mobile._id}
-              >
-                <div>
-                  img={mobile.thumbnail}
-                  phoneName={mobile.phoneName}
-                  brand={mobile.brand}
-                  price={"₹" + mobile.price}
+              
+                <div className=" flex  m-[1%] max-md:flex-col" key={mobile.thumbnail}>
+                  <div className="w-[20%]">
+                    <img
+                      className="w-[65%]"
+                      src={mobile.thumbnail}
+                      alt="thambnail"
+                    />
                   </div>
-              </Link>
+
+                  <div className="flex justify-between w-[70%]">
+                    <div className="flex flex-col justify-center items-center w-[60%]">
+                      <h1>{mobile.phoneName}</h1>
+                      <h1>{mobile.brand}</h1>
+                      <h1>{"₹" + mobile.price}</h1>
+                    </div>
+                    <div className="flex flex-col justify-center items-end w-[15%]">
+                      <button className="bg-red-500 text-white  rounded-lg  my-[1%] w-fit">Delete</button>
+                      <Link to=":id" className=" bg-blue-600 text-white rounded-lg my[1%] w-fit">UpDatePhone</Link>
+                    </div>
+                  </div>
+                </div>
+              
             ))}
           </div>
 
