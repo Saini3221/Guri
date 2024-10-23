@@ -1,11 +1,15 @@
 function Footer() {
   return (
     <footer>
-      <div className="justify-center flex w-full bg-black text-white">
-      <h1 className="flex justify-center  max-[350px]:flex-col gap-1 items-baseline max-sm:text-xs">
-        &copy;2022. All rights reserved by 
-        <p className=" max-sm:text-xs "> Guri Mobile Garage</p>
-      </h1>
+      <div className="justify-center text-white bg-black flex gap-1 max-[300px]:flex-col max-[300px]:justify-center items-center ">
+        <div>
+        <h1 className=" max-sm:text-xs">
+          &copy;2022. All rights reserved by 
+        </h1>
+        </div>
+        <div>
+        <p className=" max-sm:text-xs ">Guri Mobile Garage</p>
+        </div>
       </div>
     </footer>
   );

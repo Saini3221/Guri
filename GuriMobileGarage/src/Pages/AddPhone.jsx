@@ -9,6 +9,7 @@ function AddPhone() {
   const [price, setPrice] = useState("");
   const [thumbnail, setThumbnail] = useState("");
   const [brand, setBrand] = useState("");
+  const [description, setDescription] = useState("");
   const navigate = useNavigate();
 
   function submit(e) {
@@ -18,6 +19,7 @@ function AddPhone() {
         phoneName,
         price,
         thumbnail,
+        description,
         brand
       })
       .then((response) => { navigate("/dashboard");})
@@ -65,6 +67,15 @@ function AddPhone() {
             className=" w-[30%] h-12 m-2"
             onChange={(e) => {
               setBrand(e.target.value);
+            }}
+          />
+          <input
+            type="text"
+            placeholder="description"
+            value={description}
+            className=" w-[30%] h-12 m-2"
+            onChange={(e) => {
+              setDescription(e.target.value);
             }}
           />
         </div>

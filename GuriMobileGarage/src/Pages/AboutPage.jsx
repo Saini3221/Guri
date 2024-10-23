@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 
 function AboutPage() {
   return (
-    <div className="h-screen flex flex-col justify-between">
+    <div className="h-screen flex flex-col justify-between text-white">
       <Navbar />
       <div className="m-10">
         <h1 className="flex justify-center items-center font-jaro text-6xl max-xl:text-4xl ">
@@ -44,12 +44,12 @@ function AboutPage() {
       </div>
 
 
-      <div> 
+      {/* <div> 
         <button className="h-[10%] p-[2px] m-1 border-l-red-950">
           <a href="https://www.instagram.com/gurisaini137?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="></a>
           <img className=" h-[100%]" src="https://img.freepik.com/premium-vector/instagram-logo-vector_768467-330.jpg" alt="" />
         </button>
-      </div>
+      </div> */}
       <Footer />
     </div>
   );

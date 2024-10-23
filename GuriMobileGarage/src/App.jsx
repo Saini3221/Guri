@@ -1,4 +1,3 @@
-import React from "react";
 import HomePage from "./Pages/Home";
 import AboutPage from "./Pages/AboutPage";
 import { Route, Routes } from "react-router-dom";
@@ -26,7 +25,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/mobile" element={<Mobile />} />
         <Route path="/assessories" element={<Assessories />} />
-        <Route path="/salephone" element={<SalePhone />} />
+        <Route path="/sale" element={<SalePhone />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/mobile/:id" element={<SinglePhone />} />
         <Route path="/*" element={<NotFound />} />
