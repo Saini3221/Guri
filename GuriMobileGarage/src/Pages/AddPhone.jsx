@@ -2,7 +2,7 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import axios from "axios";
 import Footer from "../components/Footer";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
 function AddPhone() {
   const [phoneName, setPhoneName] = useState("");
@@ -20,9 +20,13 @@ function AddPhone() {
         price,
         thumbnail,
         description,
-        brand
+        brand,
       })
-      .then((response) => { navigate("/dashboard");})
+      .then((response) => {
+        navigate("/dashboard");
+        console.log(response.data);
+        
+      })
       .catch((e) => {
         console.log(e);
       });
@@ -43,7 +47,7 @@ function AddPhone() {
             }}
           />
           <input
-            type="text"
+            type="number"
             placeholder="Price"
             value={price}
             className=" w-[30%] h-12 m-2"

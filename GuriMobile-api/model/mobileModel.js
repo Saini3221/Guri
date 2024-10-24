@@ -6,7 +6,7 @@ const mobileSchema = new mongoose.Schema({
     required: true,
   },
   price: {
-    type: String,
+    type: Number,
     required: true,
   },
   thumbnail: {
@@ -24,6 +24,6 @@ const mobileSchema = new mongoose.Schema({
 });
 
 
-let Mobile = mongoose.model('Mobile', mobileSchema);
+const Mobile = mongoose.model('Mobile', mobileSchema);
  
 module.exports = Mobile;

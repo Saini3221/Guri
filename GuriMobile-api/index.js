@@ -4,6 +4,7 @@ const server = express();
 
 const userRouter =require("./routers/uesrRouter");
 const mobileRouter =require("./routers/mobileRouter");
+const cartRouter = require("./routers/cartRouter")
 
 
 const cors = require('cors');
@@ -20,6 +21,7 @@ server.use(cors())
 server.use(express.json());
 server.use("/user",userRouter)
 server.use("/mobile",mobileRouter) 
+server.use("/cart", cartRouter);
 
 const port = process.env.PORT || 3000;
 

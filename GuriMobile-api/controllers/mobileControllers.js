@@ -8,8 +8,6 @@ const getAllMobile = async (req, res) => {
 }
 
 
-
-
 const getSingleMobile = async (req, res) => {
     let id = req.headers.id;
     // console.log(id)
@@ -18,18 +16,22 @@ const getSingleMobile = async (req, res) => {
 
 }
 
-
-
-
-
 const createMobile = async (req, res) => {
-    let data = req.body;
-    // console.log(data)
-    let newPhone = await new Mobile(data).save();
-    res.send(newPhone);
-    // let newdata =await Mobile.create(data)
+    try {
+        let data = req.body;
 
-}
+        // Validate if price is a number
+        if (isNaN(data.price)) {
+            return res.status(400).send({ message: "Please enter a valid price." });
+        }
+
+        let newPhone = await new Mobile(data).save();
+        res.send(newPhone);
+    } catch (error) {
+        res.status(500).send({ message: "An error occurred", error });
+    }
+};
+
 const upDateMobile = async (req,res)=> {
     let id = req.headers.id;
     let data =req.body;
